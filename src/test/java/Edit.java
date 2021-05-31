@@ -28,7 +28,7 @@ public class Edit {
         WebElement pim_module = driver.findElement(By.id("menu_pim_viewPimModule"));
         pim_module.click();
 
-        WebElement ascName = driver.findElement(By.partialLinkText("00022"));
+        WebElement ascName = driver.findElement(By.partialLinkText("00022")); //<--- Ini diganti valuenya
         ascName.click();
 
         //Edit data employee
@@ -36,17 +36,17 @@ public class Edit {
 
         WebElement fullname = driver.findElement(By.id("personal_txtEmpFirstName"));
         fullname.clear();
-        fullname.sendKeys("Odis");
+        fullname.sendKeys("Tester");
         fullname = driver.findElement(By.id("personal_txtEmpMiddleName"));
         fullname.clear();
         fullname.sendKeys("");
         fullname = driver.findElement(By.id("personal_txtEmpLastName"));
         fullname.clear();
-        fullname.sendKeys("Adalwin");
+        fullname.sendKeys("Test");
 
         WebElement idEmployee = driver.findElement(By.id("personal_txtEmployeeId"));
         idEmployee.clear();
-        idEmployee.sendKeys("00022");
+        idEmployee.sendKeys("00022"); //<---- Ini diganti valuenya
         idEmployee = driver.findElement(By.id("personal_txtOtherID"));
         idEmployee.sendKeys("0031");
         idEmployee.clear();
@@ -75,7 +75,7 @@ public class Edit {
 
         WebElement nickname = driver.findElement(By.id("personal_txtEmpNickName"));
         nickname.clear();
-        nickname.sendKeys("Odis");
+        nickname.sendKeys("Tester");
 
         WebElement checkbox = driver.findElement(By.id("personal_chkSmokeFlag"));
         checkbox.click();
@@ -109,10 +109,10 @@ public class Edit {
 
 
         //Delete
-        WebElement check = driver.findElement(By.id("attachmentsCheckAll"));
-        check.click();
-
-        driver.findElement(By.id("btnDeleteAttachment")).click();
+//        WebElement check = driver.findElement(By.id("attachmentsCheckAll"));
+//        check.click();
+//
+//        driver.findElement(By.id("btnDeleteAttachment")).click();
 
         //Logout
         WebElement logout = driver.findElement(By.id("welcome"));
