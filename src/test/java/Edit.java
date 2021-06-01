@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import org.testng.asserts.SoftAssert;
 
 public class Edit {
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException{
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com");
@@ -37,8 +37,9 @@ public class Edit {
 	sa.assertFalse("https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList".equals(ActualURL),"Employee List Failed");
         
         //Load to edit Employee
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.partialLinkText("0002"))).click();
-//        driver.findElement(By.partialLinkText("0002")).click();
+//        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.partialLinkText("0002"))).click();
+        Thread.sleep(2000);
+        driver.findElement(By.partialLinkText("0002")).click();
         ActualURL = driver.getCurrentUrl();
         sa.assertTrue("https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployee/empNumber/2".equals(ActualURL),"Employee List Success");
 	sa.assertFalse("https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployee/empNumber/2".equals(ActualURL),"Employee List Failed");
@@ -104,36 +105,36 @@ public class Edit {
         driver.findElement(By.id("btnSave")).click();
         
         //Assert Edit Personal Detail
-        sa.assertTrue("OK".equals(driver.findElement(By.id("personal_txtMilitarySer")).getAttribute("value")),"Edit Millitary Service Status Success");
-	sa.assertFalse("OK".equals(driver.findElement(By.id("personal_txtMilitarySer")).getAttribute("value")),"Edit Millitary Service Status Failed");
-        sa.assertTrue("true".equals(driver.findElement(By.id("personal_chkSmokeFlag")).getAttribute("checked")),"Edit Smoker Status Success");
-	sa.assertFalse("true".equals(driver.findElement(By.id("personal_chkSmokeFlag")).getAttribute("checked")),"Edit Smoker Status Failed");
-        sa.assertTrue("Tester".equals(driver.findElement(By.id("personal_txtEmpNickName")).getAttribute("value")),"Edit Nickname Success");
-	sa.assertFalse("Tester".equals(driver.findElement(By.id("personal_txtEmpNickName")).getAttribute("value")),"Edit Nickname Failed");
-        sa.assertTrue("American".equals(new Select(driver.findElement(By.id("personal_cmbNation"))).getFirstSelectedOption().getText()),"Edit Nationality Success");
-	sa.assertFalse("American".equals(new Select(driver.findElement(By.id("personal_cmbNation"))).getFirstSelectedOption().getText()),"Edit Nationality Failed");
-        sa.assertTrue("Married".equals(new Select(driver.findElement(By.id("personal_cmbMarital"))).getFirstSelectedOption().getAttribute("value")),"Edit Marital Status Success");
-	sa.assertFalse("Married".equals(new Select(driver.findElement(By.id("personal_cmbMarital"))).getFirstSelectedOption().getAttribute("value")),"Edit Marital Status Failed");
-        sa.assertTrue("true".equals(driver.findElement(By.id("personal_optGender_1")).getAttribute("checked")),"Edit Gender Success");
-	sa.assertFalse("true".equals(driver.findElement(By.id("personal_optGender_1")).getAttribute("checked")),"Edit Gender Failed");
-        sa.assertTrue("42".equals(driver.findElement(By.id("personal_txtSINNo")).getAttribute("value")),"Edit SIN Number Success");
-	sa.assertFalse("42".equals(driver.findElement(By.id("personal_txtSINNo")).getAttribute("value")),"Edit SIN Number Failed");
-        sa.assertTrue("42".equals(driver.findElement(By.id("personal_txtNICNo")).getAttribute("value")),"Edit SSN Number Success");
-	sa.assertFalse("42".equals(driver.findElement(By.id("personal_txtNICNo")).getAttribute("value")),"Edit SSN Number Failed");
-        sa.assertTrue("2016-02-01".equals(driver.findElement(By.id("personal_txtLicExpDate")).getAttribute("value")),"Edit Licence Exp Date Success");
-	sa.assertFalse("2016-02-01".equals(driver.findElement(By.id("personal_txtLicExpDate")).getAttribute("value")),"Edit Licence Exp Date Failed");
-        sa.assertTrue("QZ45232222".equals(driver.findElement(By.id("personal_txtLicenNo")).getAttribute("value")),"Edit Licence No Success");
-	sa.assertFalse("QZ45232222".equals(driver.findElement(By.id("personal_txtLicenNo")).getAttribute("value")),"Edit Licence No Failed");
-        sa.assertTrue("0031".equals(driver.findElement(By.id("personal_txtOtherID")).getAttribute("value")),"Edit Other ID Success");
-	sa.assertFalse("0031".equals(driver.findElement(By.id("personal_txtOtherID")).getAttribute("value")),"Edit Other ID Failed");
-        sa.assertTrue("0002".equals(driver.findElement(By.id("personal_txtEmployeeId")).getAttribute("value")),"Edit ID Success");
-	sa.assertFalse("0002".equals(driver.findElement(By.id("personal_txtEmployeeId")).getAttribute("value")),"Edit ID Failed");
-        sa.assertTrue("Test".equals(driver.findElement(By.id("personal_txtEmpLastName")).getAttribute("value")),"Edit Last Name Success");
-	sa.assertFalse("Test".equals(driver.findElement(By.id("personal_txtEmpLastName")).getAttribute("value")),"Edit Last Name Failed");
-        sa.assertTrue("".equals(driver.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("value")),"Edit Middle Name Success");
-	sa.assertFalse("".equals(driver.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("value")),"Edit Middle Name Failed");
         sa.assertTrue("Tester".equals(driver.findElement(By.id("personal_txtEmpFirstName")).getAttribute("value")),"Edit First Name Success");
 	sa.assertFalse("Tester".equals(driver.findElement(By.id("personal_txtEmpFirstName")).getAttribute("value")),"Edit First Name Failed");
+        sa.assertTrue("".equals(driver.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("value")),"Edit Middle Name Success");
+	sa.assertFalse("".equals(driver.findElement(By.id("personal_txtEmpMiddleName")).getAttribute("value")),"Edit Middle Name Failed");
+        sa.assertTrue("Test".equals(driver.findElement(By.id("personal_txtEmpLastName")).getAttribute("value")),"Edit Last Name Success");
+	sa.assertFalse("Test".equals(driver.findElement(By.id("personal_txtEmpLastName")).getAttribute("value")),"Edit Last Name Failed");
+        sa.assertTrue("0002".equals(driver.findElement(By.id("personal_txtEmployeeId")).getAttribute("value")),"Edit ID Success");
+	sa.assertFalse("0002".equals(driver.findElement(By.id("personal_txtEmployeeId")).getAttribute("value")),"Edit ID Failed");
+        sa.assertTrue("0031".equals(driver.findElement(By.id("personal_txtOtherID")).getAttribute("value")),"Edit Other ID Success");
+	sa.assertFalse("0031".equals(driver.findElement(By.id("personal_txtOtherID")).getAttribute("value")),"Edit Other ID Failed");
+        sa.assertTrue("QZ45232222".equals(driver.findElement(By.id("personal_txtLicenNo")).getAttribute("value")),"Edit Licence No Success");
+	sa.assertFalse("QZ45232222".equals(driver.findElement(By.id("personal_txtLicenNo")).getAttribute("value")),"Edit Licence No Failed");
+        sa.assertTrue("2016-02-01".equals(driver.findElement(By.id("personal_txtLicExpDate")).getAttribute("value")),"Edit Licence Exp Date Success");
+	sa.assertFalse("2016-02-01".equals(driver.findElement(By.id("personal_txtLicExpDate")).getAttribute("value")),"Edit Licence Exp Date Failed");
+        sa.assertTrue("42".equals(driver.findElement(By.id("personal_txtNICNo")).getAttribute("value")),"Edit SSN Number Success");
+	sa.assertFalse("42".equals(driver.findElement(By.id("personal_txtNICNo")).getAttribute("value")),"Edit SSN Number Failed");
+        sa.assertTrue("42".equals(driver.findElement(By.id("personal_txtSINNo")).getAttribute("value")),"Edit SIN Number Success");
+	sa.assertFalse("42".equals(driver.findElement(By.id("personal_txtSINNo")).getAttribute("value")),"Edit SIN Number Failed");
+        sa.assertTrue("true".equals(driver.findElement(By.id("personal_optGender_1")).getAttribute("checked")),"Edit Gender Success");
+	sa.assertFalse("true".equals(driver.findElement(By.id("personal_optGender_1")).getAttribute("checked")),"Edit Gender Failed");
+        sa.assertTrue("Married".equals(new Select(driver.findElement(By.id("personal_cmbMarital"))).getFirstSelectedOption().getAttribute("value")),"Edit Marital Status Success");
+	sa.assertFalse("Married".equals(new Select(driver.findElement(By.id("personal_cmbMarital"))).getFirstSelectedOption().getAttribute("value")),"Edit Marital Status Failed");
+        sa.assertTrue("American".equals(new Select(driver.findElement(By.id("personal_cmbNation"))).getFirstSelectedOption().getText()),"Edit Nationality Success");
+	sa.assertFalse("American".equals(new Select(driver.findElement(By.id("personal_cmbNation"))).getFirstSelectedOption().getText()),"Edit Nationality Failed");
+        sa.assertTrue("Tester".equals(driver.findElement(By.id("personal_txtEmpNickName")).getAttribute("value")),"Edit Nickname Success");
+	sa.assertFalse("Tester".equals(driver.findElement(By.id("personal_txtEmpNickName")).getAttribute("value")),"Edit Nickname Failed");
+        sa.assertTrue("true".equals(driver.findElement(By.id("personal_chkSmokeFlag")).getAttribute("checked")),"Edit Smoker Status Success");
+	sa.assertFalse("true".equals(driver.findElement(By.id("personal_chkSmokeFlag")).getAttribute("checked")),"Edit Smoker Status Failed");
+        sa.assertTrue("OK".equals(driver.findElement(By.id("personal_txtMilitarySer")).getAttribute("value")),"Edit Millitary Service Status Success");
+	sa.assertFalse("OK".equals(driver.findElement(By.id("personal_txtMilitarySer")).getAttribute("value")),"Edit Millitary Service Status Failed");        
 
         //Edit Golongan darah
         driver.findElement(By.id("btnEditCustom")).click();
