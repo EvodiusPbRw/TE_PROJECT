@@ -6,9 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="ee6f4dc8-10c5-4bf0-9937-f98e5f07a46e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Add.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Add.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/Add.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Add.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Task-and-etc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/nbactions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/com/rplmilnabuburbayi/sppq/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/com/rplmilnabuburbayi/sppq/Beranda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/com/rplmilnabuburbayi/sppq/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/com/rplmilnabuburbayi/sppq/TopupClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/com/rplmilnabuburbayi/sppq/options.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/resources/com/rplmilnabuburbayi/sppq/Beranda.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/resources/com/rplmilnabuburbayi/sppq/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/resources/com/rplmilnabuburbayi/sppq/Topup.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sem5/RPL/SPPQ/src/main/resources/com/rplmilnabuburbayi/sppq/windowIntroduction.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sppq/nbactions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sppq/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sppq/src/main/java/com/mycompany/sppq/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sppq/src/main/java/com/mycompany/sppq/SystemInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sppq/src/main/java/module-info.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../test.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +32,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../" />
   </component>
   <component name="ProjectId" id="1tIvFpvcKAiUlkZUxUSORKj8746" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -28,7 +43,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitHub Repo/TE_PROJECT" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
