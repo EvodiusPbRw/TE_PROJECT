@@ -7,30 +7,37 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.testng.asserts.SoftAssert;
 
 public class Edit {
     public static void main(String[] args){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com");
+        SoftAssert sa = new SoftAssert();
         driver.manage().window().maximize();
 
         //Login ke orange
         WebElement username = driver.findElement(By.id("txtUsername"));
         WebElement password = driver.findElement(By.id("txtPassword"));
-
         username.sendKeys("admin");
         password.sendKeys("admin123");
-
         WebElement submit = driver.findElement(By.id("btnLogin"));
         submit.click();
+        String expectedURL = driver.getCurrentUrl();
+        sa.assertTrue("https://opensource-demo.orangehrmlive.com/index.php/dashboard".equals(expectedURL),"Login Success");
+	sa.assertFalse("https://opensource-demo.orangehrmlive.com/index.php/dashboard".equals(expectedURL),"Login Failed");
 
         WebElement pim_module = driver.findElement(By.id("menu_pim_viewPimModule"));
         pim_module.click();
+        expectedURL = driver.getCurrentUrl();
+        sa.assertTrue("https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList".equals(expectedURL),"Employee List Success");
+	sa.assertFalse("https://opensource-demo.orangehrmlive.com/index.php/pim/viewEmployeeList".equals(expectedURL),"Employee List Failed");
 
-        WebElement ascName = driver.findElement(By.partialLinkText("00022")); //<--- Ini diganti valuenya
-        ascName.click();
-
+        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.partialLinkText("0002"))).click();
+        driver.findElement(By.partialLinkText("0002")).click();
+        
         //Edit data employee
         driver.findElement(By.id("btnSave")).click();
 
@@ -46,7 +53,7 @@ public class Edit {
 
         WebElement idEmployee = driver.findElement(By.id("personal_txtEmployeeId"));
         idEmployee.clear();
-        idEmployee.sendKeys("00022"); //<---- Ini diganti valuenya
+        idEmployee.sendKeys("0002");
         idEmployee = driver.findElement(By.id("personal_txtOtherID"));
         idEmployee.sendKeys("0031");
         idEmployee.clear();
@@ -99,13 +106,14 @@ public class Edit {
         driver.findElement(By.id("btnAddAttachment")).click();
 
         WebElement chooseFile = driver.findElement(By.id("ufile"));
-        chooseFile.sendKeys("D:/Download From C/Picture/86330617_p0.jpg");
+        chooseFile.sendKeys("C:\\Users\\Joevi\\OneDrive\\Gambar");
 
         WebElement textArea  = driver.findElement(By.id("txtAttDesc"));
         textArea.clear();
         textArea.sendKeys("Mantab");
 
         driver.findElement(By.id("btnSaveAttachment")).click();
+        sa.assertAll();
 
 
         //Delete
@@ -115,11 +123,9 @@ public class Edit {
 //        driver.findElement(By.id("btnDeleteAttachment")).click();
 
         //Logout
-        WebElement logout = driver.findElement(By.id("welcome"));
-        logout.click();
-
-        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Logout"))).click();
-
-
+//        WebElement logout = driver.findElement(By.id("welcome"));
+//        logout.click();
+//
+//        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(By.partialLinkText("Logout"))).click();
     }
 }
